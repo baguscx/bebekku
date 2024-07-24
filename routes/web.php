@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BuyerController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
@@ -20,6 +22,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     })->name('admin.dashboard');
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
     Route::post('/product/create', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
+    Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update');
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::post('/order/upload', [OrderController::class, 'upload'])->name('order.upload');
+    Route::get('/order/{transaction}', [OrderController::class, 'show'])->name('order.show');
 });
 
 Route::get('/product', [ProductController::class, 'index'])->middleware(['auth', 'verified'])->name('product.index');

@@ -26,7 +26,9 @@ class ProductController extends Controller
             'title' => 'Create Product',
             'description' => 'Create a new product',
             'keywords' => 'product, create, new',
-            'button' => 'Create'
+            'button' => 'Create',
+            'route' => route('product.store'),
+            'method' => 'POST'
         ];
         return view('product.form', compact('metapage'));
     }
@@ -49,7 +51,7 @@ class ProductController extends Controller
             'description' => $request->description,
             'price' => $request->price,
             'stock' => $request->stock,
-            'image' => $imageName
+            'image' => $imageName,
         ]);
 
 
@@ -72,7 +74,17 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+
+        $metapage = [
+            'title' => 'Edit Product',
+            'description' => 'Update a new product',
+            'keywords' => 'product, Edit, update',
+            'button' => 'Edit',
+            'route' => route('product.update', $product->id),
+            'method' => 'PUT'
+        ];
+
+        return view('product.form', compact('metapage', 'product'));
     }
 
     /**
@@ -80,7 +92,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $imageName = $product->image;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+        }
+
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'image' => $imageName,
+        ]);
+
+        return redirect()->route('product.index');
+
     }
 
     /**

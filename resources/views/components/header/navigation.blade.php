@@ -18,6 +18,8 @@
                                 @if (Auth::user()->hasRole('admin'))
                                     <li><a class="dropdown-item" href="{{route('product.index')}}">Produk Saya</a></li>
                                     <li><a class="dropdown-item" href="{{route('product.create')}}">Tambah Produk</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item" href="{{route('order.index')}}">Pesanan Produk</a></li>
                                 @endif
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="{{route('profile.edit')}}">Pengaturan</a></li>

@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TransactionController extends Controller
 {
@@ -30,6 +31,11 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
+        $product = Product::find($request->product_id);
+        if($request->quantity > $product->stock) {
+            Alert::error('Error', 'Quantity exceeds the available stock');
+            return redirect()->back();
+        }
         $total = $request->quantity * $request->price;
         $transaction = Transaction::create([
             'user_id' => auth()->id(),
@@ -61,10 +67,7 @@ class TransactionController extends Controller
         $transaction->snap_token = $snapToken;
         $transaction->save();
 
-        $product = Product::find($request->product_id);
-        $product->stock = $product->stock - $request->quantity;
-        $product->save();
-
+        Alert::success('Success', 'Product successfully purchased');
         return redirect()->route('transaction', $transaction->id);
     }
 
@@ -105,6 +108,10 @@ class TransactionController extends Controller
     {
         $transaction->status = 'success';
         $transaction->save();
+
+        $product = Product::find($transaction->product_id);
+        $product->stock = $product->stock - $transaction->quantity;
+        $product->save();
 
         return view('buyer.success', compact('transaction'));
     }

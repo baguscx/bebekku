@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
-use App\Models\Transaction;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class PesananController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $orders = Transaction::where('status', 'success')->orderBy('created_at', 'asc')->get();
-        return view('order.index', compact('orders'));
+        return view('order.index');
     }
 
     /**
@@ -36,16 +34,15 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Transaction $transaction)
+    public function show(Pesanan $pesanan)
     {
-        $user = $transaction->user;
-        return view('order.show', compact('transaction', 'user'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order $order)
+    public function edit(Pesanan $pesanan)
     {
         //
     }
@@ -53,7 +50,7 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Pesanan $pesanan)
     {
         //
     }
@@ -61,7 +58,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy(Pesanan $pesanan)
     {
         //
     }
