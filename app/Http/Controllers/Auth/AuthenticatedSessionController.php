@@ -28,7 +28,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        if(Auth::user()->hasRole('admin')) {
+            return redirect()->intended(route('admin.dashboard', absolute: false));
+        } elseif(Auth::user()->hasRole('owner')) {
+            return redirect()->intended(route('owner.dashboard', absolute: false));
+        } elseif(Auth::user()->hasRole('buyer')) {
+            return redirect()->intended(route('buyer.dashboard', absolute: false));
+        }
+
+        // return redirect()->intended(route('dashboard', absolute: false));
     }
 
     /**
