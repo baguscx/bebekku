@@ -1,4 +1,5 @@
 <x-app-layout>
+    <x-slot name="title">Product : {{$product->name}}</x-slot>
     <x-header.banner>
         <x-slot name="title">
             {{$product->name}}

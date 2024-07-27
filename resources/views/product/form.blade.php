@@ -1,4 +1,5 @@
 <x-app-layout>
+    <x-slot name="title">{{$metapage['title']}}</x-slot>
     <x-header.banner>
         <x-slot name="title">{{$metapage['title']}}</x-slot>
         <x-slot name="description">{{$metapage['description']}}</x-slot>

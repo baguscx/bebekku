@@ -1,4 +1,5 @@
 <x-app-layout>
+    <x-slot name="title">Order #{{$transaction->id}}</x-slot>
     <x-header.banner>
         <x-slot name="title">
             Transaction Page

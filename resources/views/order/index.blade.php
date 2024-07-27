@@ -1,4 +1,5 @@
 <x-app-layout>
+    <x-slot name="title">Order Page</x-slot>
     <x-header.banner>
         <x-slot name="title">All Order</x-slot>
         <x-slot name="description">All Order</x-slot>
