@@ -16,14 +16,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+Route::middleware(['auth', 'role:owner|admin'])->group(function () {
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
     Route::post('/product/create', [ProductController::class, 'store'])->name('product.store');
     Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
     Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update');
+    Route::get('/laporan', [TransactionController::class, 'laporan'])->name('laporan');
+});
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
     Route::post('/order/upload/{id}', [OrderController::class, 'upload'])->name('order.upload');
     Route::get('/order/{transaction}', [OrderController::class, 'show'])->name('order.show');

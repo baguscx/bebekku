@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Transaction;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -114,5 +115,14 @@ class TransactionController extends Controller
         $product->save();
 
         return view('buyer.success', compact('transaction'));
+    }
+
+    public function laporan(){
+        $transactions = Transaction::where('status', 'success')->get();
+        $pdf = new Dompdf();
+        $pdf->loadHtml(view('laporan', compact('transactions'))->render());
+        $pdf->setPaper('A4', 'potrait');
+        $pdf->render();
+        $pdf->stream('laporan', ['Attachment' => false]);
     }
 }

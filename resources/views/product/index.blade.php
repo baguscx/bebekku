@@ -22,7 +22,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
-                                        <h5 class="fw-bolder">{{$product->name}} {{Auth::user()->hasRole('admin') ? '('.$product->stock.')' : ''}}</h5>
+                                        <h5 class="fw-bolder">{{$product->name}} {{Auth::user()->hasRole('admin') || Auth::user()->hasRole('owner') ? '('.$product->stock.')' : ''}}</h5>
                                         <!-- Product price-->
                                         Rp. {{$product->price}}
                                     </div>
@@ -40,7 +40,7 @@
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                         <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{route('product.show', $product->id)}}">Buy Now</a></div>
                                     </div>
-                                @elseif (Auth::user()->hasRole('admin'))
+                                @elseif (Auth::user()->hasRole('admin') || Auth::user()->hasRole('owner'))
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                         <div class="text-center">
                                             <a class="btn btn-outline-dark mt-auto" href="{{route('product.show', $product->id)}}">Detail</a>

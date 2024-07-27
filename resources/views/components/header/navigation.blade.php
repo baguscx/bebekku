@@ -7,6 +7,9 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link {{request()->is('dashboard') ? 'active' : '' }}" aria-current="page" href="#!">Home</a></li>
                         <li class="nav-item"><a class="nav-link {{request()->is('product') ? 'active' : '' }}" href="{{route('product.index')}}">Product</a></li>
+                        @if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('owner'))
+                            <li class="nav-item"><a class="nav-link {{request()->is('laporan') ? 'active' : '' }}" href="{{route('laporan')}}">Laporan</a></li>
+                        @endif
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item dropdown active">
@@ -20,6 +23,11 @@
                                     <li><a class="dropdown-item" href="{{route('product.create')}}">Tambah Produk</a></li>
                                     <li><hr class="dropdown-divider" /></li>
                                     <li><a class="dropdown-item" href="{{route('order.index')}}">Pesanan Produk</a></li>
+                                @elseif (Auth::user()->hasRole('owner'))
+                                    <li><a class="dropdown-item" href="{{route('laporan')}}">Laporan</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item" href="{{route('product.index')}}">Produk Saya</a></li>
+                                    <li><a class="dropdown-item" href="{{route('product.create')}}">Tambah Produk</a></li>
                                 @endif
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="{{route('profile.edit')}}">Pengaturan</a></li>
