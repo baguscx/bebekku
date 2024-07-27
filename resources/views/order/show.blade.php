@@ -52,7 +52,12 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item">Produk Sedang dikemas</li>
+                            @if ($transaction->bukti_pengiriman == null)
+                                <li class="list-group-item">Produk Sedang dikemas 📦</li>
+                            @else
+                                <li class="list-group-item">Produk Sedang dikirim ✈️</li>
+                                <a class=" mt-2 btn btn-primary" href="{{route('faktur', $transaction->id)}}">Cetak Faktur</a>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -65,12 +70,16 @@
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <img src="{{ asset('storage/' . $transaction->proof_of_payment) }}" alt="Bukti Pengiriman" class="img-fluid">
-                                <form action="{{ route('order.upload', $transaction->id) }}" method="post">
+                                @if ($transaction->bukti_pengiriman == null)
+                                    <div class="small">Belum ada bukti pengiriman</div>
+                                @else
+                                    <img src="{{'/images/bukti_pengiriman/'.$transaction->bukti_pengiriman}}" alt="Bukti Pengiriman" class="img-fluid">
+                                @endif
+                                <form action="{{ route('order.upload', $transaction->id) }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="proof_of_payment">Upload Bukti Pengiriman</label>
-                                        <input type="file" class="form-control" name="photo" id="photo">
+                                        <label for="bukti_pengiriman">Upload Bukti Pengiriman</label>
+                                        <input type="file" class="form-control" name="bukti_pengiriman" id="bukti_pengiriman">
                                     </div>
                                     <button type="submit" class="btn btn-success">Upload</button>
                                 </form>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('total');
             $table->string('status');
             $table->string('snap_token')->nullable();
+            $table->string('bukti_pengiriman')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

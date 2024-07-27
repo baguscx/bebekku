@@ -16,6 +16,7 @@ class Transaction extends Model
         'total',
         'status',
         'snap_token',
+        'bukti_pengiriman',
     ];
 
     public function user()

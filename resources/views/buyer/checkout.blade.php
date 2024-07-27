@@ -53,8 +53,17 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">Produk Sedang dikemas</li>
+                        @if ($transaction->bukti_pengiriman == null)
+                            <li class="list-group-item">Produk Sedang dikemas 📦</li>
+                        @else
+                            <li class="list-group-item">Produk Sedang dikirim ✈️</li>
+                        @endif
                     </ul>
+                        @if ($transaction->bukti_pengiriman == null)
+                            <div class="small">Belum ada bukti pengiriman</div>
+                        @else
+                            <img src="{{'/images/bukti_pengiriman/'.$transaction->bukti_pengiriman}}" width="150px" alt="Bukti Pengiriman" class="img-fluid mt-2">
+                        @endif
                 </div>
             </div>
         </div>

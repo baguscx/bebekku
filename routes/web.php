@@ -25,8 +25,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
     Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
-    Route::post('/order/upload', [OrderController::class, 'upload'])->name('order.upload');
+    Route::post('/order/upload/{id}', [OrderController::class, 'upload'])->name('order.upload');
     Route::get('/order/{transaction}', [OrderController::class, 'show'])->name('order.show');
+    Route::get('/faktur/{id}', [OrderController::class, 'faktur'])->name('faktur');
 });
 
 Route::get('/product', [ProductController::class, 'index'])->middleware(['auth', 'verified'])->name('product.index');
