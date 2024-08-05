@@ -16,7 +16,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>
-            <x-slot name="title">All Product</x-slot>
+            <x-slot name="title">Semua Produk</x-slot>
         </title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />

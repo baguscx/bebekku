@@ -9,13 +9,13 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Order ID</th>
-                    <th>Customer Name</th>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Total Payment</th>
-                    <th>Order Date</th>
-                    <th>Actions</th>
+                    <th>ID Pesanan</th>
+                    <th>Nama Pelanggan</th>
+                    <th>Nama Produk</th>
+                    <th>Banyaknya</th>
+                    <th>Total Pembayaran</th>
+                    <th>Tanggal Pemesanan</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>

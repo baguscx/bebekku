@@ -1,8 +1,8 @@
 <x-app-layout>
-        <x-slot name="title">All Product</x-slot>
+        <x-slot name="title">Semua Produk</x-slot>
         <x-header.banner>
-            <x-slot name="title">Welcome to our online store</x-slot>
-            <x-slot name="description">Welcome to our online store</x-slot>
+            <x-slot name="title">Selamat Datang di Toko Online Kami</x-slot>
+            <x-slot name="description">Temukan produk anda disini</x-slot>
         </x-header.banner>
         @if (Auth::user()->phone == null || Auth::user()->address == null)
             <section class="mt-5 container d-flex align-items-center justify-content-center text-align-center bg-warning p-3">
@@ -39,7 +39,7 @@
                                 @if (Auth::user()->hasRole('buyer') && $product->stock > 0)
                                     <!-- Product actions-->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{route('product.show', $product->id)}}">Buy Now</a></div>
+                                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{route('product.show', $product->id)}}">Beli</a></div>
                                     </div>
                                 @elseif (Auth::user()->hasRole('admin') || Auth::user()->hasRole('owner'))
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">

@@ -116,8 +116,8 @@
 								</td>
                                 <td style="text-align: left;"></td>
 								<td>
-                                    Invoice #: {{$transaction->id}}<br />
-                                    Created: {{ \Carbon\Carbon::parse($transaction->created_at)->isoFormat('D MMMM YYYY', 'Do MMMM YYYY') }}<br />		</td>
+                                    ID Pesanan #: {{$transaction->id}}<br />
+                                    Dibuat: {{ \Carbon\Carbon::parse($transaction->created_at)->isoFormat('D MMMM YYYY', 'Do MMMM YYYY') }}<br />		</td>
 							</tr>
 						</table>
 					</td>
@@ -141,7 +141,7 @@
 				</tr>
 
 				<tr class="heading">
-					<td>Payment Method</td>
+					<td>Metode Pembayaran</td>
 					<td>Kode #</td>
 				</tr>
 
@@ -150,8 +150,8 @@
                     <td>{{$transaction->id}}</td>
                 </tr>
                 <tr class="heading">
-                    <td>Item</td>
-                    <td>Price</td>
+                    <td>Barang</td>
+                    <td>Harga</td>
                 </tr>
 
                 <tr class="item">

@@ -12,10 +12,10 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
+                    <th>Produk</th>
+                    <th>Banyaknya</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>

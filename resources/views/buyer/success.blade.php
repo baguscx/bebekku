@@ -1,8 +1,8 @@
 <x-app-layout>
-    <x-slot name="title">Payment Success</x-slot>
+    <x-slot name="title">Pembayaran Success</x-slot>
     <x-header.banner>
         <x-slot name="title">
-            Transaction Success ✅
+            Transaksi Berhasil ✅
         </x-slot>
         <x-slot name="description">
             Transaksi kamu berhasil. Halaman ini akan dialihkan dalam <span id="countdown">5</span> detik.

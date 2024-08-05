@@ -22,6 +22,7 @@ Route::middleware(['auth', 'role:owner|admin'])->group(function () {
     Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
     Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::get('/laporan', [TransactionController::class, 'laporan'])->name('laporan');
+    Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {

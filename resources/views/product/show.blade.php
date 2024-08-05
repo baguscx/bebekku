@@ -32,7 +32,7 @@
                                         <input name="quantity" class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem"/>
                                         <button class="btn btn-outline-dark flex-shrink-0" type="button" data-toggle="modal" data-target="#myModal">
                                             <i class="bi-cart-fill me-1"></i>
-                                            Buy
+                                            Beli
                                         </button>
                                     @endif
                                     @if (Auth::user()->hasRole('buyer'))

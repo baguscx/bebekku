@@ -19,33 +19,40 @@
                                 <img src="{{ '/images/'.$product->image ?? ''}}" alt="" width="30%">
                             @endif
                             <div class="form-group">
-                                <label for="image">Image</label>
+                                <label for="image">Foto</label>
                                 <input type="file" name="image" id="image" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name">Nama</label>
                                 <input type="text" value="{{old('name', $product->name ?? '')}}" name="name" id="name" class="form-control" required>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="price">Price</label>
+                                        <label for="price">Harga</label>
                                         <input type="number" value="{{old('price', $product->price ?? '')}}" name="price" id="price" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="stock">Stock</label>
+                                        <label for="stock">Stok</label>
                                         <input type="number" value="{{old('stock', $product->stock ?? '')}}" name="stock" id="stock" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="description">Description</label>
+                                <label for="description">Deskripsi</label>
                                 <textarea name="description" id="description" class="form-control" required>{{old('description', $product->description ?? '')}}</textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">{{$metapage['button']}}</button>
                         </form>
+                            @if (Auth::user()->hasRole('admin') && $metapage['button'] == 'Edit')
+                                <form action="{{ route('product.destroy', $product->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger mt-2">Hapus</button>
+                                </form>
+                            @endif
                     </div>
                 </div>
             </div>

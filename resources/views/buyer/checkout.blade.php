@@ -1,18 +1,18 @@
 <x-app-layout>
-    <x-slot name="title">Transaction</x-slot>
+    <x-slot name="title">Transaksi</x-slot>
 
     <x-header.banner>
         <x-slot name="title">
-            Transaction Page
+            Halaman Transaksi
         </x-slot>
         <x-slot name="description">
-            Here is your transaction details:
+            Ini adalah detail transaksi kamu:
         </x-slot>
     </x-header.banner>
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                Personal Details
+                Detail Pembeli
             </div>
             <div class="card-body">
                 <ul class="list-group">
@@ -28,11 +28,11 @@
     <div class="container my-4">
         <div class="card">
             <div class="card-header">
-                Produk Details
+                Detail Produk
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    <li class="list-group-item">Transaction ID: {{ $transaction->id }}</li>
+                    <li class="list-group-item">ID Transaksi: {{ $transaction->id }}</li>
                     <li class="list-group-item">Nama Barang: {{ $transaction->product->name }}</li>
                     <li class="list-group-item">Harga Satuan: Rp. {{ $transaction->product->price }}</li>
                     <li class="list-group-item">Jumlah Pembelian: {{ $transaction->quantity }}</li>
@@ -40,7 +40,7 @@
                 </ul>
 
                 @if ($transaction->status == 'pending')
-                    <button id="pay-button" class="btn btn-success mt-4">Pay Now</button>
+                    <button id="pay-button" class="btn btn-success mt-4">Bayar Sekarang</button>
                 @endif
 
             </div>
