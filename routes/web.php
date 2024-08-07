@@ -59,4 +59,6 @@ Route::middleware(['auth', 'role:buyer'])->group(function () {
     Route::get('/checkout/success/{transaction}', [TransactionController::class, 'success'])->name('checkout-success');
 });
 
+Route::get('/mailcok', [TransactionController::class, 'mail']);
+
 require __DIR__.'/auth.php';

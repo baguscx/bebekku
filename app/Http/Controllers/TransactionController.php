@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendEmail;
 use App\Models\Product;
 use App\Models\Transaction;
+use App\Models\User;
 use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class TransactionController extends Controller
@@ -114,6 +117,18 @@ class TransactionController extends Controller
         $product->stock = $product->stock - $transaction->quantity;
         $product->save();
 
+        $user = User::where('id', $transaction->user_id)->first();
+        $mailData = [
+            'title' => 'Thank you for your purchase',
+            'body' => 'Your purchase has been successfully processed',
+            'product' => $product,
+            'transaction' => $transaction,
+        ];
+
+        Mail::to($user->email)->send(new SendEmail($mailData));
+        Mail::to('barkedt@gmail.com')->send(new SendEmail($mailData));
+        Mail::to('alippalevi7@gmail.com')->send(new SendEmail($mailData));
+
         return view('buyer.success', compact('transaction'));
     }
 
@@ -124,5 +139,18 @@ class TransactionController extends Controller
         $pdf->setPaper('A4', 'potrait');
         $pdf->render();
         $pdf->stream('laporan', ['Attachment' => false]);
+    }
+
+    public function mail(){
+                $mailData = [
+            'title' => 'Thank you for your purchase',
+            'body' => 'Your purchase has been successfully processed',
+            // 'product' => $product,
+            // 'transaction' => $transaction,
+        ];
+
+        Mail::to('bebekku@gmail.com')->send(new SendEmail($mailData));
+        Mail::to('barkedt@gmail.com')->send(new SendEmail($mailData));
+
     }
 }
