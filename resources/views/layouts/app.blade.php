@@ -23,8 +23,8 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap) -->
-        <link href="{{asset('vendor/sb-admin-2.min.css')}}" rel="stylesheet" />
-        <link href="{{asset('vendor/bootstrap.min.css')}}" rel="stylesheet" />
+        <link href="{{asset('/sb-admin-2.min.css')}}" rel="stylesheet" />
+        <link href="{{asset('/bootstrap.min.css')}}" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body class="font-sans antialiased">
@@ -49,9 +49,9 @@
 
             <x-header.footer/>
         </div>
-        <script src="{{asset('vendor/jquery.min.js')}}"></script>
-        <script src="{{asset('vendor/jquery.easing.min.js')}}"></script>
-        <script src="{{asset('vendor/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{asset('vendor/sb-admin-2.js')}}"></script>
+        <script src="{{asset('/jquery.min.js')}}"></script>
+        <script src="{{asset('/jquery.easing.min.js')}}"></script>
+        <script src="{{asset('/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('/sb-admin-2.js')}}"></script>
     </body>
 </html>
