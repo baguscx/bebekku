@@ -6,14 +6,31 @@ use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = Product::all();
+    return view('welcome', compact('products'));
+});
+
+Route::get('/tentang', function () {
+    return view('tentang');
+});
+
+Route::get('/kontak', function () {
+    return view('kontak');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    if(Auth::user()->hasRole('owner')) {
+        return redirect()->route('owner.dashboard');
+    } elseif(Auth::user()->hasRole('admin')) {
+        return redirect()->route('admin.dashboard');
+    } elseif(Auth::user()->hasRole('buyer')) {
+        return redirect()->route('buyer.dashboard');
+    }
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'role:owner|admin'])->group(function () {

@@ -25,7 +25,7 @@
                                         <!-- Product name-->
                                         <h5 class="fw-bolder">{{$product->name}} {{Auth::user()->hasRole('admin') || Auth::user()->hasRole('owner') ? '('.$product->stock.')' : ''}}</h5>
                                         <!-- Product price-->
-                                        Rp. {{$product->price}}
+                                        Rp. {{ number_format($product->price, 0, ',', '.') }}
                                     </div>
                                 </div>
                                 @if ($product->stock < 1 && Auth::user()->hasRole('buyer'))

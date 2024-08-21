@@ -3,34 +3,11 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <center>
-                    <h2>Produk Kami</h2>
+                    <h2>Tentang Kami</h2>
                 </center>
             <section class="py-2">
             <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    @foreach ($products as $product)
-                        <div class="col mb-5">
-                            <div class="card h-100">
-                                <!-- Product image-->
-                                <img class="card-img-top" src="{{asset('images/'.$product->image)}}" alt="..." />
-                                <!-- Product details-->
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <!-- Product name-->
-                                        <h5 class="fw-bolder">{{$product->name}} </h5>
-                                        <!-- Product price-->
-                                        Rp. {{ number_format($product->price, 0, ',', '.') }}
-                                    </div>
-                                </div>
-                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                        <div class="text-center">
-                                            <a class="btn btn-sm btn-outline-success mt-auto rounded" href="{{route('product.show', $product->id)}}">Detail</a>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+                    <p>Selamat datang di <strong>Bebekku</strong>, pusatnya segala kebutuhan bebek berkualitas! Kami adalah penyedia terpercaya yang berdedikasi untuk menyediakan produk terbaik, mulai dari bebek hidup, daging bebek segar, hingga telur berkualitas tinggi. Dengan pengalaman bertahun-tahun dalam industri peternakan, kami memahami pentingnya menjaga kesehatan dan kualitas produk yang kami tawarkan. Bebek-bebek kami dipelihara dengan penuh perhatian, menggunakan metode peternakan yang ramah lingkungan dan berkelanjutan. Kami bangga bisa menyajikan produk yang tidak hanya lezat, tetapi juga sehat dan bergizi.Kami juga menawarkan berbagai pilihan produk terkait bebek lainnya, seperti telur segar yang kaya akan nutrisi dan daging bebek yang dipotong dengan standar kebersihan yang tinggi. Semua produk kami dikemas dengan hati-hati untuk memastikan kesegaran sampai di tangan Anda.Komitmen kami adalah memberikan pelayanan terbaik dengan harga yang kompetitif. Kami percaya bahwa kepuasan pelanggan adalah prioritas utama, dan kami selalu siap untuk memenuhi kebutuhan Anda dengan cepat dan efisien.Terima kasih telah mempercayakan kebutuhan bebek Anda kepada kami. Kami berharap dapat melayani Anda dan menjadi mitra terpercaya dalam setiap langkah bisnis Anda.</p>
             </div>
         </section>
 

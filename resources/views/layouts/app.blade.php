@@ -50,8 +50,8 @@
             <x-header.footer/>
         </div>
         <script src="{{asset('/jquery.min.js')}}"></script>
-        <script src="{{asset('/jquery.easing.min.js')}}"></script>
         <script src="{{asset('/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('/jquery.easing.min.js')}}"></script>
         <script src="{{asset('/sb-admin-2.js')}}"></script>
     </body>
 </html>

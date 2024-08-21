@@ -16,8 +16,8 @@
                             <div class="col-md-6">
                                 <h1 class="display-5 fw-bolder">{{$product->name}}</h1>
                                 <div class="fs-5 mb-3">
-                                    <span class="text-decoration-line-through">Rp. {{$product->price}}</span>
-                                    <span>Rp. {{$product->price}}</span>
+                                    {{-- <span class="text-decoration-line-through">Rp. {{$product->price}}</span> --}}
+                                    <span>Rp. {{ number_format($product->price, 0, ',', '.') }}</span>
                                 </div>
                                 <p class="lead text-secondary">{{$product->description}}</p>
                                 <form action="{{route('checkout')}}" method="POST" class="d-flex align-items-center">
