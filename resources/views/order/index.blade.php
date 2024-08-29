@@ -1,8 +1,8 @@
 <x-app-layout>
-    <x-slot name="title">Order Page</x-slot>
+    <x-slot name="title">Halaman Order</x-slot>
     <x-header.banner>
-        <x-slot name="title">All Order</x-slot>
-        <x-slot name="description">All Order</x-slot>
+        <x-slot name="title">Semua Pesanan</x-slot>
+        <x-slot name="description">Semua Pesanan</x-slot>
     </x-header.banner>
 
     <div class="container py-4">

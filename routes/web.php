@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $products = Product::all();
     return view('welcome', compact('products'));
-});
+})->name('welcome');
 
 Route::get('/tentang', function () {
     return view('tentang');
-});
+})->name('tentang');
 
 Route::get('/kontak', function () {
     return view('kontak');
-});
+})->name('kontak');
 
 Route::get('/dashboard', function () {
     if(Auth::user()->hasRole('owner')) {
@@ -38,7 +38,7 @@ Route::middleware(['auth', 'role:owner|admin'])->group(function () {
     Route::post('/product/create', [ProductController::class, 'store'])->name('product.store');
     Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
     Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update');
-    Route::get('/laporan', [TransactionController::class, 'laporan'])->name('laporan');
+Route::get('/laporan', [TransactionController::class, 'laporan'])->name('laporan');
     Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
 

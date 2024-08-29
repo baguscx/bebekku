@@ -9,11 +9,12 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     Kami siap melayani dan menjawab pertanyaan Anda. Jangan ragu untuk menghubungi kami melalui salah satu saluran berikut:
-                        <br><br><br>📞 Nomor HP: +6281234567889
+                        <br><br><br>📞 Nomor HP: +6289688252090
                         <br>✉️ Email: bebekkuapp@gmail.com
                         <br>📸 Instagram: @bebekkuapp
                         <br>👍 Facebook: /bebekkuapp
-                    <br><br><br>Kami akan dengan senang hati membantu Anda dengan segala kebutuhan atau pertanyaan seputar produk dan layanan kami. Terima kasih telah menghubungi kami!
+                    <br><br>Pastikan anda TERHUBUNG dengan akun & nomor diatas ketika akan bertransaksi. Jika ada transaksi di luar nomor di atas maka dipastikan itu bukan pihak kami.
+                    <br>Kami akan dengan senang hati membantu Anda dengan segala kebutuhan atau pertanyaan seputar produk dan layanan kami. Terima kasih telah menghubungi kami!
                 </div>
             </div>
         </section>

@@ -139,6 +139,7 @@ class TransactionController extends Controller
         $pdf->setPaper('A4', 'potrait');
         $pdf->render();
         $pdf->stream('laporan', ['Attachment' => false]);
+        exit();
     }
 
     public function mail(){

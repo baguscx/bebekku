@@ -2,10 +2,10 @@
     <x-slot name="title">History</x-slot>
     <x-header.banner>
         <x-slot name="title">
-            Transaction History
+            Riwayat Transaksi
         </x-slot>
         <x-slot name="description">
-            Here is your transaction history
+            Disini adalah riwayat transaksi Anda:
         </x-slot>
     </x-header.banner>
     <div class="container my-4">
