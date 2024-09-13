@@ -47,9 +47,9 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                {{'Name: '.Auth::user()->name}} <br>
-                                                {{'Phone: '.Auth::user()->phone}} <br>
-                                                {{'Address: '.Auth::user()->address}} <br>
+                                                {{'Nama: '.Auth::user()->name}} <br>
+                                                {{'Telepon: '.Auth::user()->phone}} <br>
+                                                {{'Alamat: '.Auth::user()->address}} <br>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" onclick="window.location.href = '{{ route('profile.edit') }}'">Edit</button>

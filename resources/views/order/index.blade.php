@@ -12,9 +12,9 @@
                     <th>ID Pesanan</th>
                     <th>Nama Pelanggan</th>
                     <th>Nama Produk</th>
-                    <th>Banyaknya</th>
                     <th>Total Pembayaran</th>
                     <th>Tanggal Pemesanan</th>
+                    <th>Banyaknya</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -23,12 +23,18 @@
                 <tr>
                     <td>{{ $order->id }}</td>
                     <td>{{ $order->user->name }}</td>
-                    <td>{{ $order->product->name }}</td>
-                    <td>{{ $order->quantity }}</td>
+                    <td>{{ $order->product->name.' ('. $order->quantity .')' }}</td>
                     <td>Rp. {{ $order->total }}</td>
                     <td>{{ $order->created_at->format('Y-m-d') }}</td>
                     <td>
-                        <a href="{{ route('order.show', $order->id) }}" class="btn btn-sm btn-primary">View</a>
+                        @if ($order->bukti_pengiriman)
+                            <span class="badge badge-success">Sudah Dikirim</span>
+                        @else
+                            <span class="badge badge-warning">Belum Dikirim</span>
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('order.show', $order->id) }}" class="btn btn-sm btn-primary">Lihat</a>
                     </td>
                 </tr>
                 @endforeach

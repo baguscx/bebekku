@@ -14,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Transaction::where('status', 'success')->orderBy('created_at', 'asc')->get();
+        $orders = Transaction::where('status', 'success')->orderBy('created_at', 'desc')->get();
         return view('order.index', compact('orders'));
     }
 

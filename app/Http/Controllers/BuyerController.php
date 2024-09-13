@@ -13,7 +13,7 @@ class BuyerController extends Controller
      */
     public function history()
     {
-        $transactions = auth()->user()->transaction;
+        $transactions = auth()->user()->transaction()->latest()->get();
         return view('buyer.history', compact('transactions'));
     }
 
