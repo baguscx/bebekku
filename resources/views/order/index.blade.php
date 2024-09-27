@@ -14,7 +14,7 @@
                     <th>Nama Produk</th>
                     <th>Total Pembayaran</th>
                     <th>Tanggal Pemesanan</th>
-                    <th>Banyaknya</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
